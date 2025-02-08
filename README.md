@@ -1,4 +1,4 @@
-A website builder created using ReactJS
+Website Building Platform programmed in ReactJS
 (Still in development)
 
 Live Demo: 
