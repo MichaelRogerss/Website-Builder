@@ -1,0 +1,430 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    color:white;
+}
+p{
+    padding:0;
+    margin:0;
+}
+button{
+    cursor:pointer;
+}
+.editor{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.sidebar{
+    background-color: #1c1c1c;
+    padding:0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+}
+.sidebar>button{
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:transparent;
+    border:none;
+    color:white;
+
+}
+.navbar{
+    background-color: #242424;
+    padding:0.4rem;
+    display:flex;
+    justify-content: space-between;
+}
+.navbar>button:nth-child(1){
+    background-color: #101010;
+    border: none;
+    color: white;
+}
+.inner{
+    background-color: #2d2d2d;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.innermost{
+    display: flex;
+    flex:1;
+    position: relative;
+}
+.editsidebar{
+    background-color: #1c1c1c;
+    padding:0.4rem;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 30px);
+}
+.editinnersidebar{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    margin-bottom:-3rem;
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.editinnersidebar>p{
+    text-align: right;
+    font-size: 0.8rem;
+    color: #959595;
+}
+.preview{
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: calc(100vh - 30px);
+}
+.sizeSelectors{
+    display: flex;
+    justify-content: center;
+}
+.sizeSelectors>button{
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+}
+div{
+    box-sizing: border-box;
+}
+.addSideFrame{
+    background-color: #101010;
+    position:absolute;
+    height:100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.treeStackFrame{
+    background-color: #101010;
+    position:absolute;
+    height:100%;
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding:0.5remz;
+}
+.addSideFrameInner{
+    padding:0.3rem;
+}
+.addsideframetop{
+    padding:0.3rem;
+    background-color:black;
+}
+.elementaddselect{
+    display:flex;
+    flex-direction: row;
+    gap:0.3rem;
+}
+.elementaddselect>button{
+    background-color: black;
+    border-radius: 5px;
+    color: white;
+    padding: 0.2rem 0.5rem;
+    flex: 1;
+    border: none;
+}
+.elementsfinderframe{
+    flex:1;
+    overflow-y: scroll;
+    margin-top: 0.5rem;
+}
+#previewIframe{
+    box-sizing: border-box;
+    border:none;
+    transition: width 0.5s ease; 
+}
+
+.editinnersidebar>button{
+    background: transparent;
+    color: white;
+    display: flex;
+    padding: 0.5rem;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2d2d2d;
+}
+.sizingframe{
+    background-color:#101010;
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+    padding:0.3rem;
+}
+.sizingframe>div{
+    display: flex;
+    justify-content: space-between;
+    gap:0.2rem;
+}
+.sizingInput{
+    display: flex;
+    flex:0;
+    background: #101010;
+    padding:0.2rem;
+    gap:0.3rem;
+    border-radius:5px;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    align-items: center;
+    flex: 1;
+    justify-content: space-between;
+}
+.sizingInput>input{
+
+    width: 3rem;
+    background-color:black;
+    border:none;
+    border-radius:2px;
+    color:white;
+}
+
+.ColorPicker>input{
+    width: 3rem;
+    background-color:black;
+    border:none;
+    border-radius:2px;
+    color:white;
+}
+.react-colorful .chrome-picker {
+    background-color: #333 !important;
+    color: #fff !important;
+  }
+.backgroundframe{
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-between;
+    background-color: #101010;
+    padding:0.3rem;
+}
+.backgroundframe>input{
+    width: 3rem;
+    background-color:black;
+    border:none;
+    border-radius:2px;
+    color:white;
+}
+
+.textframe{
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    gap:0.3rem;
+    padding:0.3rem;
+}
+.textinnerframe{
+    display: flex;
+    font-size: 0.8rem;
+    justify-content: space-between;
+}
+.textinnerframe>input{
+    width: 3rem;
+    background-color:black;
+    border:none;
+    border-radius:2px;
+    color:white;
+}
+
+#displays {
+    position: relative;
+    
+}
+
+#displays.select-upwards::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.chrome-picker>div:nth-child(2){
+    background-color:#252525;
+}
+
+.saveBTN{
+    background-color: transparent;
+    padding:0;
+    border:none;
+}
+/* Hide scrollbar track */
+::-webkit-scrollbar {
+    width: 12px; /* Set a width for the scrollbar */
+  }
+  
+  /* Style the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #333; /* Set the background color of the thumb */
+    border-radius: 6px; /* Set border radius to round the corners of the thumb */
+  }
+  
+  /* Optional: Set a hover effect on the thumb */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Set a different background color on hover */
+  }
+  
+
+
+
+  .paddingselector {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    border: 3px dotted #ffffff4a;
+    position: relative;
+    border-radius: 10px;
+  }
+  .paddingselector > span {
+    position: absolute;
+    color: #ffffff94;
+    padding: 0.2rem;
+
+    font-size: 0.8rem;
+  }
+  .pselector {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .mselector {
+    flex: 1;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+  }
+  
+  .oselector {
+    flex: 1;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem;
+  }
+  .pselectormiddle {
+    display: flex;
+    flex-direction: column;
+  }
+  .pselectorinput {
+    box-sizing: border-box;
+    max-width: 38px;
+  }
+  .mmiddle {
+    position: relative;
+    border: 3px solid #b7b7b7;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .mmiddle > span {
+    position: absolute;
+    color: #ffffff94;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+  }
+  .mmmiddle {
+    display: flex;
+    align-items: center;
+    color: white;
+    
+  }
+  .pselectorinput {
+    color: white;
+    background: transparent;
+    border: none;
+    text-align: center;
+  }
+  .holder{
+    width:100%
+  }
+
+.addElementsFrame{
+    display: flex;
+    max-width: 200px;
+    gap:0.3rem;
+}
+  .addElementFrame{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background:transparent;
+    border:2px dotted grey;
+    color:white;
+    border-radius:10px;
+    padding:0.4rem;
+    white-space: nowrap;
+  }
+
+  #customContextMenu {
+    display: none;
+    position: absolute;
+    background-color: #212020;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding:0.5rem;
+    border-radius:5px;
+}
+
+#customContextMenu li {
+    list-style: none;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+ul{
+    padding-inline-start: 10px;
+    margin: 0;
+    margin-right:0.5rem;
+}
+.treeAccordion{
+    display:flex;
+    align-items: center;
+}
+.treeAccordion>span:nth-child(1){
+    color:white;
+}
+.treeAccordion>span:nth-child(2){
+    color:white;
+}
+.treeAccordion>span:nth-child(3){
+    color:grey;
+    font-size:0.8rem;
+    margin-left:0.4rem;
+}
+.stacksvg>path{
+    fill:white;
+}
+
+.editinnersidebar input{
+    background-color: #343434;
+    color: white;
+}
